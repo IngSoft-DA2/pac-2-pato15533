@@ -36,7 +36,7 @@ export class ReflectionComponent {
       },
       error: (error) => {
         this.hasError = true;
-        this.errorMessage = 'Error al cargar los importers';
+        this.errorMessage = 'Error al cargar los importers: ' + error;
         this.isLoading = false;
       },
     });
