@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2>Reflection - Importers</h2>
+          <p class="mb-0">Accesos a esta ruta: {{ currentCount }} / 20</p>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <button 
+              class="btn btn-primary" 
+              (click)="loadImporters()" 
+              [disabled]="isLoading">
+              <span *ngIf="!isLoading">Cargar Importers</span>
+              <span *ngIf="isLoading">
+                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                Cargando...
+              </span>
+            </button>
+          </div>
+
+          <div *ngIf="isLoading" class="text-center py-4">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Cargando...</span>
+            </div>
+            <p class="mt-2">Cargando importers...</p>
+          </div>
+
+          <div *ngIf="hasError && !isLoading" class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">¡Error!</h4>
+            <p>{{ errorMessage }}</p>
+          </div>
+
+          <div *ngIf="!isLoading && !hasError && importers.length === 0" class="alert alert-info" role="alert">
+            <h4 class="alert-heading">Sin datos</h4>
+            <p>No hay importers disponibles. Haz clic en el botón para cargarlos.</p>
+          </div>
+
+          <div *ngIf="!isLoading && !hasError && importers.length > 0">
+            <h4>Importers encontrados:</h4>
+            <ul class="list-group">
+              <li *ngFor="let importer of importers" class="list-group-item">
+                {{ importer }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
