@@ -15,6 +15,6 @@ export class CounterService {
   }
 
   isAccessBlocked(): boolean {
-    return this.counter > 20;
+    return this.counter >= 20;
   }
 }
