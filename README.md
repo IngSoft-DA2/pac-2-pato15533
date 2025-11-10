@@ -5,3 +5,5 @@
 Nombre: Patricio
 Apellido: Martino
 Nro estudiante: 242673
+
+El Boton de Reflection se encuentra en la esquina izquierda del navbar.
